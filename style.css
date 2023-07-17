@@ -1,0 +1,219 @@
+/* Add custom styles here */
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: background-color 0.3s;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  opacity: 1;
+}
+
+.navbar.low-opacity {
+  opacity: 0.8;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #fff;
+}
+
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item .nav-link.active {
+  font-weight: bold;
+}
+
+/* Additional styles for the color palette */
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: #fff;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus,
+.navbar-nav .nav-item .nav-link:active {
+  color: #ccc;
+}
+
+/*home*/
+/* Add custom styles here */
+
+
+.homecontainer {
+  padding-top: 100px;
+}
+
+.name-intro {
+  font-size: 48px;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 24px;
+  padding: 20px;
+}
+
+.glowing-button {
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  margin-left: 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.glowing-button:hover {
+  background-color: #ccc;
+}
+
+.profile-image {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.profile-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("background-graphics.png");
+  background-repeat: repeat;
+  opacity: 0.1;
+}
+
+.profile-frame {
+  height: 300px;
+  width: 300px;
+  border: 5px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.profile-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .name-intro {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+}
+
+/*ABOUT ME*/
+/* Add custom styles here */
+
+.aboutcontainer {
+  padding-top: 100px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.about-text {
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 20px;
+  text-align: justify;
+}
+
+.carousel-item img {
+  height: 350px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .about-text {
+    font-size: 16px;
+  }
+}
+
+/*FOOTER*/
+/* Add custom styles here */
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.footer .map {
+  height: 300px;
+  /* Add map styles */
+}
+
+#map {
+  height: 300px;
+  width: 100%;
+  /* Add this rule to ensure the map container takes up the full width */
+}
+
+.footer-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-text {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.social-media {
+  margin-top: 30px;
+}
+
+.social-link {
+  font-size: 24px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer .map {
+    height: 200px;
+  }
+
+  .footer-title {
+    font-size: 20px;
+  }
+
+  .footer-text {
+    font-size: 16px;
+  }
+
+  .social-link {
+    font-size: 20px;
+  }
+}
