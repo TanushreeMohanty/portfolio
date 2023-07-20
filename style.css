@@ -1,41 +1,27 @@
 body {
   background-color: #fff;
   color: #000;
+
+  h1 {
+    font-family: Georgia;
+  }
+
+  p {
+    font-family: montserrat;
+  }
 }
 
 .heading {
   position: relative;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0px;
-  text-transform: uppercase;
-  width: 150px;
-  text-align: center;
-  margin: auto;
-  white-space: nowrap;
-  border: 2px solid #222;
-  padding: 5px 11px 3px 11px;
+  font-size: 36px;
+  font-family: Trocchi;
+  color: #000;
+  text-align: left;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
-.heading h2:before,
-.heading h2:after {
-  background-color: #c50000;
-  position: absolute;
-  content: '';
-  height: 7px;
 
-  width: 7px;
-  border-radius: 50%;
-  bottom: 12px;
-}
 
-.heading h2:before {
-  left: -20px;
-}
-
-.heading h2:after {
-  right: -20px;
-}
 
 /* Add custom styles here */
 
@@ -81,47 +67,79 @@ body {
 /*home*/
 /* Add custom styles here */
 
-
 .homecontainer {
   padding-top: 100px;
-
+  position: relative;
 }
 
-.name-intro {
-  font-size: 48px;
-  padding-left: 20px;
-  font-weight: bold;
-  text-align: center;
+.bg-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.special {
-  font-size: 60px;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 10px;
+.black-opacity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
 }
 
-.description {
+.p {
+  margin: 0;
+  position: relative;
   font-size: 24px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  text-align: center;
-}
-
-.glowing-button {
-  background-color: black;
+  font-weight: 700;
+  font-family: Inter;
   color: #fff;
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  text-align: center;
+  padding: 20px;
+  padding-top: 60px;
 }
 
-.glowing-button:hover {
-  background-color: #ccc;
+.im {
+  color: #fff;
+}
+
+.span {
+  color: #000;
+}
+
+.im-bhuvanesh {}
+
+.h2 {
+  position: relative;
+  font-size: 48px;
+  font-weight: 700;
+  font-family: Inter;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  color: #0017e5;
+  padding-left: 20px;
+}
+
+.h4 {
+  margin: 0;
+  position: relative;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Inter;
+  color: #fff;
+  text-align: center;
+  padding-left: 20px;
+}
+
+.profile-image-icon {
+  position: relative;
+  border-radius: 50%;
+  width: 100%;
+  height: 514px;
+  object-fit: cover;
 }
 
 .profile-image {
@@ -130,18 +148,7 @@ body {
   width: 100%;
   overflow: hidden;
   padding: 10px;
-}
-
-.profile-image::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-image: url("background-graphics.png");
-  background-repeat: repeat;
-  opacity: 0.1;
+  margin-top: 20px;
 }
 
 .profile-frame {
@@ -159,21 +166,28 @@ body {
   object-fit: cover;
 }
 
-@media (max-width: 768px) {
-  .name-intro {
-    font-size: 36px;
+@media (max-width: 767px) {
+  .homecontainer {
+    padding-top: 50px;
   }
 
-  .description {
-    font-size: 20px;
+  .profile-image {
+    margin-top: 20px;
   }
 }
+
 
 /*ABOUT ME*/
 /* Add custom styles here */
 
 .aboutcontainer {
   padding-top: 100px;
+  background-image: url('');
+    background-size: cover; /* Adjust as needed */
+    background-position: center center; /* Adjust as needed */
+    background-repeat: no-repeat;
+    width : 100%;
+    height : 500px;
 }
 
 .about-text {
@@ -195,13 +209,71 @@ body {
   padding: 10px;
 }
 
+@media (max-width: 992px) {
+  .aboutcontainer {
+    height: auto; /* Remove fixed height for smaller screens */
+  }
+  .col-lg-6 {
+    flex: 1; /* Make both columns occupy full width on smaller screens */
+  }
+  .carousel-inner {
+    width: 100%; /* Ensure the carousel images take full width on smaller screens */
+  }
+  .carousel-item img {
+    width: 100%; /* Make carousel images responsive */
+  }
+}
+
+/*PROJECTS*/
+.projects {
+  background-image: url('path/to/background-image.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* Add any additional styles you want for the projects container here */
+  padding: 50px 0;
+}
+
+.heading {
+  text-align: center;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Adjust as needed for spacing between project cards */
+  margin: 0 auto;
+  max-width: 1200px; /* Adjust the max-width to your preference */
+}
+
+.project-card {
+  width: 48%; /* Adjust as needed to control the width of each project card */
+  margin-bottom: 20px; /* Adjust as needed for spacing between project cards */
+  /* Add any additional styles you want for each project card here */
+  transition: opacity 0.5s, transform 0.5s;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.project-card.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 28px;
+  .projects-container {
+    flex-direction: column; /* Stack project cards vertically on smaller screens */
+    align-items: center; /* Center the project cards on smaller screens */
   }
 
-  .about-text {
-    font-size: 16px;
+  .project-card {
+    width: 100%; /* Make project cards occupy full width on smaller screens */
   }
 }
 
@@ -344,19 +416,48 @@ body {
 
 /*SERVICES*/
 
-/* Add custom styles here */
+.vg{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 70px;
+  color: white;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100% ;
+  width: 100% ;
+  border-radius: 20px;
+}
+
+.services {
+  padding: 50px 0;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 .services-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
-  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-card {
-
-  padding: 10px;
+  flex-basis: calc(33.33% - 20px);
+  padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -364,6 +465,30 @@ body {
   cursor: pointer;
   text-align: center;
   margin: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: spawn-in 0.5s ease-in-out forwards;
+}
+@keyframes spawn-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vanish-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
 
 .service-card:hover {
@@ -381,45 +506,25 @@ body {
   font-weight: bold;
 }
 
-/* Slide Effect */
-.services-container {
-  overflow: hidden;
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.service-card:nth-child(odd) {
-  animation: slideIn 1s ease-in-out;
-}
-
-.service-card:nth-child(even) {
-  animation: slideIn 1s ease-in-out 0.5s;
-}
-
 /* Media Queries */
-@media (max-width: 768px) {
-  .service-card {
-
-    margin: 10px;
-  }
-
-  @media (max-width: 576px) {
-    .service-card {
-
-      margin: 10px;
-    }
+@media (max-width: 1200px) {
+  .services-container {
+    max-width: 960px;
   }
 }
+
+@media (max-width: 992px) {
+  .service-card {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .service-card {
+    flex-basis: calc(100% - 20px);
+  }
+}
+
 
 /*TESTIMONIALS*/
 
@@ -428,11 +533,22 @@ body {
 /*SKILLS*/
 /* Add custom styles here */
 
+canvas {
+  position: absolute;
+  top: 0;
+  width:100%;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
 .skills-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  
 }
 
 .skill-card {
@@ -451,6 +567,7 @@ body {
 .skill-card h4 {
   font-size: 18px;
   font-weight: bold;
+  
 }
 
 /* Hover Effects */
