@@ -28,10 +28,28 @@ $('.carousel').carousel({
   pause: false
 });
 
-//SERVICES
-document.addEventListener("DOMContentLoaded", function () {
-  const serviceCards = document.querySelectorAll(".service-card");
-  const isInViewport = function (element) {
+
+
+// Initialize Google Map
+function initMap() {
+  var mapOptions = {
+    center: { lat: 37.7749, lng: -122.4194 }, // Set the center of the map
+    zoom: 8 // Set the zoom level
+  };
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: { lat: 37.7749, lng: -122.4194 }, // Set the position of the marker
+    map: map,
+    title: 'San Francisco' // Set a title for the marker (optional)
+  });
+}
+
+/*Project Animation*/
+
+  const projectCards = document.querySelectorAll('.project-card');
+
+  function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
       rect.top >= 0 &&
@@ -39,29 +57,86 @@ document.addEventListener("DOMContentLoaded", function () {
       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-  };
-  const addMagicClass = function () {
-    serviceCards.forEach((card) => {
+  }
+
+  function handleScrollAnimation() {
+    projectCards.forEach((card) => {
       if (isInViewport(card)) {
-        card.classList.add("magic");
+        card.classList.add('appear');
+      } else {
+        card.classList.remove('appear');
       }
     });
-  };
-  addMagicClass();
-  window.addEventListener("scroll", addMagicClass);
-});
+  }
 
-// Initialize Google Map
-function initMap() {
-      var mapOptions = {
-        center: { lat: 37.7749, lng: -122.4194 }, // Set the center of the map
-        zoom: 8 // Set the zoom level
-      };
-      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  // Call the function on initial load and on scroll
+  handleScrollAnimation();
+  window.addEventListener('scroll', handleScrollAnimation);
 
-      var marker = new google.maps.Marker({
-        position: { lat: 37.7749, lng: -122.4194 }, // Set the position of the marker
-        map: map,
-        title: 'San Francisco' // Set a title for the marker (optional)
-      });
+/*SERVICES*/
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+const width = window.innerWidth;
+const height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
+
+function drawMarbleTexture() {
+  for (let i = 0; i < 1000; i++) {
+    const x = Math.random() * width;
+    const y = Math.random() * height;
+    const radius = Math.random() * 20 + 5;
+    const intensity = Math.random() * 60 + 40;
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${intensity / 100})`;
+    ctx.fill();
+  }
+}
+
+ctx.fillStyle = 'black';
+ctx.fillRect(0, 0, width, height);
+
+drawMarbleTexture();
+
+//services animation 
+const serviceCards = document.querySelectorAll('.service-card');
+const servicesSection = document.querySelector('.services');
+let lastScrollY = window.scrollY;
+
+function animateServiceCards() {
+  serviceCards.forEach((card, index) => {
+    card.style.animation = `spawn-in 0.5s ease-in-out forwards ${index * 0.1}s`;
+  });
+}
+
+function vanishServiceCards() {
+  serviceCards.forEach((card, index) => {
+    card.style.animation = `vanish-out 0.3s ease-in-out forwards ${index * 0.1}s`;
+  });
+}
+
+function scrollDirection() {
+  const scrollY = window.scrollY;
+  const servicesSectionTop = servicesSection.getBoundingClientRect().top;
+
+  if (scrollY > lastScrollY) {
+    // Scrolling down, animate service cards in
+    animateServiceCards();
+  } else {
+    // Scrolling up, check if the user scrolled above the services section
+    if (scrollY <= servicesSectionTop) {
+      // Animate service cards out only if the user scrolled above the services section
+      vanishServiceCards();
     }
+  }
+
+  lastScrollY = scrollY;
+}
+
+window.onload = animateServiceCards;
+window.addEventListener('scroll', scrollDirection);
+
+
